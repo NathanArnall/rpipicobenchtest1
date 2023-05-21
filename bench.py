@@ -15,8 +15,8 @@ def bench():
     # End benchmarking code
     
 while loopct < loops + 1:
-    loopct += 1
     bench()
+    loopct += 1
     currentticks = ticks_cpu() - initcputicks
     # Printing 1 line costs a lot of ticks (30 each non-empty print + ~2 ticks per character)
     #print("Current ticks: " + str(currentticks))
