@@ -1,29 +1,29 @@
 #Raspberry Pi Pico Benchmark
 from machine import freq
 from time import sleep, ticks_cpu, ticks_ms
-loops = 1500 #Iterations to run through
-clockspeedmhz = 50 #Clockspeed of CPU in MHz. Recommended range is 20-270
-machine.freq(clockspeedmhz*1000000) #Set CPU speed in Hz
-initcputicks = ticks_cpu() #Grabs current number of ticks the CPU has been on
+loops = 1000 # Iterations to run through
+clockspeedmhz = 50 # Clockspeed of CPU in MHz. Recommended range is 20-270
+machine.freq(clockspeedmhz*1000000) # Set CPU speed in Hz
+initcputicks = ticks_cpu() # Grabs current number of ticks the CPU has ran through after powered on
 print("Initial ticks: " + str(ticks_cpu()))
-currentticks = ticks_cpu() - initcputicks
+currentticks = ticks_cpu() - initcputicks # Creates a relative tick count (treat this as 0)
 loopct = 0
 initms = ticks_ms()
 def bench():
-    #Start benchmarking code
-    print ("Your code should go here") #Or leave this as the benchmark
-    #End benchmarking code
+    # Start benchmarking code
+    print ("Your code should go here") # Or leave this as the benchmark
+    # End benchmarking code
     
 while loopct < loops + 1:
     currentticks = ticks_cpu() - initcputicks
     loopct += 1
     bench()
-    #Printing 1 line costs a lot of ticks (30 each non-empty print + ~2 ticks per character)
+    # Printing 1 line costs a lot of ticks (30 each non-empty print + ~2 ticks per character)
     #print("Current ticks: " + str(currentticks))
     #print("Current loops: " + str(tickct))
     #print("Average ticks per benchmark): " + str((currentticks)/tickct))
 
-#Clear some space and dump those stats
+# Clear some space and dump those stats
 print ()
 print ()
 print ()
